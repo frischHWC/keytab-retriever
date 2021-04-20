@@ -1,0 +1,38 @@
+= Java app CDP
+
+Goal of this project is to retrieve keytabs from CM database and push it to local File System (/etc/security/keytabs/).
+
+
+
+== How to run it ?
+
+First, go to link:pom.xml[pom.xml] and change cdp version to yours, change also if required, individual versions of each component. +
+Then Package the program:
+
+        mvn clean package
+
+Configure it to your environment by changing settings in config.properties:
+
+    cloudera-scm.db=scm
+    cloudera-scm.host=
+    cloudera-scm.port=5432
+    cloudera-scm.user=scm
+    cloudera-scm.password=changeme
+
+    # If Mysql/Mariadb: com.mysql.jdbc.Driver, if postgres: org.postgresql.Driver
+    cloudera-scm.driver=org.postgresql.Driver
+    cloudera-scm.db.type=postgresql
+
+Then you can run it using this java command:
+
+[source,bash]
+java -jar keytab-retriever*.jar
+
+
+It is also possible to launch it on a platform using script: link:src/main/resources/launchToPlatform.sh[src/main/resources/launchToPlatform.sh].
+(Adapt it to your needs by changing user & machine of the platform) +
+
+
+
+
+
