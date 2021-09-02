@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export DIR="/home/root/keytab-retriever"
+export DIR="/root/keytab-retriever"
 
 echo "*** Starting to launch program ***"
 
